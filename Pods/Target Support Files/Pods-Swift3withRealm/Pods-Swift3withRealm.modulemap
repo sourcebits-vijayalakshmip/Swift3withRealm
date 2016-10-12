@@ -1,0 +1,6 @@
+framework module Pods_Swift3withRealm {
+  umbrella header "Pods-Swift3withRealm-umbrella.h"
+
+  export *
+  module * { export * }
+}
