@@ -22,10 +22,9 @@ class ViewController: UIViewController {
 
     @IBAction func button_Clicked(_ sender: AnyObject) {
         
-        let APIKEYVALUE = ["X-Mashape-Key":"xd90O4gfMdmshyLxk5cBvl44PPHlp1ONA3kjsnFFOAtbQnoshp"]
+        //let APIKEYVALUE = ["X-Mashape-Key":"xd90O4gfMdmshyLxk5cBvl44PPHlp1ONA3kjsnFFOAtbQnoshp"]
         
-        NetworkManager.shared.retrieveCards(APIKEY: APIKEYVALUE as NSDictionary, completion: { (backendError) in
-            
+        NetworkManager.shared.retrieveCards(completion: { (backendError) in
             
             if let backendError = backendError {
                 

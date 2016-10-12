@@ -93,7 +93,7 @@ extension NetworkManager {
     
     func validate(response urlResponse: HTTPURLResponse, data: Data?) -> Request.ValidationResult {
         
-        if 200 ... 299 ~= urlResponse.statusCode {
+       if 200 ... 299 ~= urlResponse.statusCode {
             // Check if the application server response is valid
             if let data = data {
                 
@@ -122,7 +122,8 @@ extension NetworkManager {
                 return .failure(BackendError.dataSerialization(reason: "Missing response data"))
             }
             
-        } else {
+        }
+    else {
             return .failure(BackendError.network(error: NSError(domain: APIErrorConstants.domain, code: urlResponse.statusCode, userInfo: nil)))
         }
   
@@ -133,9 +134,9 @@ extension NetworkManager {
 
 extension NetworkManager {
     
-    func retrieveCards(APIKEY: NSDictionary, completion: @escaping (BackendError?) -> ()) {
+    func retrieveCards(completion: @escaping (BackendError?) -> ()) {
         
-        let router = APIRouter(endpoint: .getcards(apikey: APIKEY))
+        let router = APIRouter(endpoint: .getcards())
         
         internalManager.request(router)
             .validate({ (request, response, data) -> Request.ValidationResult in

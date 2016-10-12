@@ -19,7 +19,7 @@ public typealias APIParameters = [String : Any]?
 public struct BaseURLConfiguration {
 
     /// The API base URL.
-    public static let host = "https://omgvamp-hearthstone-v1.p.mashape.com/info"
+    public static let host = "https://omgvamp-hearthstone-v1.p.mashape.com"
     public static let baseURL = "https://omgvamp-hearthstone-v1.p.mashape.com/info"
 
 }
@@ -30,7 +30,7 @@ public struct BaseURLConfiguration {
 enum Endpoint {
     
     //case getcards(individualCard: CardsInfo)
-    case getcards(apikey: NSDictionary)
+    case getcards()
 
 }
 
@@ -39,10 +39,12 @@ enum Endpoint {
 
 protocol APIConfigurable {
     var method: Alamofire.HTTPMethod { get }
-    var encoding: Alamofire.ParameterEncoding? { get }
-    var path: String { get }
-    var parameters: APIParameters { get }
+    var headers: Alamofire.HTTPHeaders { get }
+   // var encoding: Alamofire.ParameterEncoding? { get }
+   // var path: String { get }
+    //var parameters: APIParameters { get }
     var baseURL: String { get }
+    
 }
 
 
@@ -56,31 +58,37 @@ class BaseRouter: URLRequestConvertible, APIConfigurable {
         fatalError("[\(Mirror(reflecting: self).description) - \(#function))] Must be overridden in subclass")
     }
     
-    var encoding: Alamofire.ParameterEncoding? {
+     var headers: Alamofire.HTTPHeaders {
         fatalError("[\(Mirror(reflecting: self).description) - \(#function))] Must be overridden in subclass")
     }
     
-    var path: String {
-        fatalError("[\(Mirror(reflecting: self).description) - \(#function))] Must be overridden in subclass")
-    }
+//    var encoding: Alamofire.ParameterEncoding? {
+//        fatalError("[\(Mirror(reflecting: self).description) - \(#function))] Must be overridden in subclass")
+//    }
     
-    var parameters: APIParameters {
-        fatalError("[\(Mirror(reflecting: self).description) - \(#function))] Must be overridden in subclass")
-    }
+//    var path: String {
+//        fatalError("[\(Mirror(reflecting: self).description) - \(#function))] Must be overridden in subclass")
+//    }
+    
+//    var parameters: APIParameters {
+//        fatalError("[\(Mirror(reflecting: self).description) - \(#function))] Must be overridden in subclass")
+//    }
     
     var baseURL: String {
         return BaseURLConfiguration.baseURL
     }
     
+    
     func asURLRequest() throws -> URLRequest {
         
         let baseURL = try self.baseURL.asURL()
-        let endpoint = baseURL.appendingPathComponent(path)
+        let endpoint = baseURL
         var urlRequest = URLRequest(url: endpoint)
         
         urlRequest.httpMethod = method.rawValue
+       // urlRequest.addValue("xd90O4gfMdmshyLxk5cBvl44PPHlp1ONA3kjsnFFOAtbQnoshp", forHTTPHeaderField: "")
         
-        if let encoding = encoding {
+     /*  if let encoding = encoding {
             
             if let extendedParameters = parameters {
                 
@@ -91,7 +99,7 @@ class BaseRouter: URLRequestConvertible, APIConfigurable {
                 let request = try encoding.encode(urlRequest, with: parameters)
                 return request
             }
-        }
+        } */
         
         return urlRequest
     }
@@ -116,42 +124,57 @@ class APIRouter: BaseRouter {
         
         switch endpoint {
             
-        case .getcards(_): return .get
+        case .getcards(): return .get
         
         }
     }
     
-    override var path: String {
+    override  var headers: Alamofire.HTTPHeaders {
         
         switch endpoint {
             
-        case .getcards(_): return "info"
-
+        case .getcards():
+            let headers: HTTPHeaders = ["X-Mashape-Key": "xd90O4gfMdmshyLxk5cBvl44PPHlp1ONA3kjsnFFOAtbQnoshp"]
+            return headers
         }
     }
     
-    override var parameters: APIParameters {
-        
-        switch endpoint {
-        
-        case .getcards(var keyvalue):
-            
-            let APIKEYVALUE = ["X-Mashape-Key":"xd90O4gfMdmshyLxk5cBvl44PPHlp1ONA3kjsnFFOAtbQnoshp"]
-            keyvalue = APIKEYVALUE as NSDictionary
-
-            return keyvalue as? [String : Any]
-        
-
-        }
-    }
     
-    override var encoding: Alamofire.ParameterEncoding? {
+//    override var path: String {
+//        
+//        switch endpoint {
+//            
+//        case .getcards(): return "info"
+//
+//        }
+//    }
+    
+  /*  override var parameters: APIParameters {
         
         switch endpoint {
+        
+//        case .getcards(var keyvalue):
+//            
+//            let APIKEYVALUE = ["X-Mashape-Key":"xd90O4gfMdmshyLxk5cBvl44PPHlp1ONA3kjsnFFOAtbQnoshp"]
+//            keyvalue = APIKEYVALUE as NSDictionary
+//
+//            return keyvalue as? [String : Any]
             
-        case .getcards(_): return JSONEncoding.default
-
+        case .getcards():
+            //var parameters = JSONDictionary()
+        
+            return nil
         }
+    } */
+    
+//    override var encoding: Alamofire.ParameterEncoding? {
+//        
+//        switch endpoint {
+//            
+//        case .getcards(): return JSONEncoding.default
+//            
+//        }
+//    }
+    
     }
-}
 

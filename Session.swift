@@ -14,7 +14,6 @@ import RealmSwift
 struct CardsInfo {
     
     var factionsCards: [String]
-    var APIKEYVALUE = ["X-Mashape-Key":"xd90O4gfMdmshyLxk5cBvl44PPHlp1ONA3kjsnFFOAtbQnoshp"]
 
 }
 
