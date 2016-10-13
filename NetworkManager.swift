@@ -153,23 +153,19 @@ extension NetworkManager {
                         
                             debugPrint("Array response: \(dataArray)")
                             
-                            DispatchQueue(label: "realmBackground").async {
+                            //DispatchQueue(label: "realmBackground").async {
                                 
                                 do {
                                     let realm = try Realm()
                                     
-                                    if let card = Mapper<Cards>().mapArray(JSONArray: dataArray as! [[String : AnyObject]]) {
+                                    if  let factionvalue  = Mapper<Info>().mapArray(JSONArray: dataArray as! [[String : Any]]) {
                                         
-                                        debugPrint("card response: \(card)")
-
-                                        //card.isMe = true
-                                        
-                                        debugPrint("card response: \(dataArray)")
-
+                                        debugPrint("factionvalue response: \(factionvalue)")
+                                    
                                         // Import the object
                                         try realm.write {
                                             // update the unique object if it is already in the store
-                                            realm.add(card, update: true)
+                                            realm.add(factionvalue, update: true)
                                         }
                                         
                                         // Call the completion block
@@ -182,13 +178,15 @@ extension NetworkManager {
                                             completion(BackendError.objectSerialization(reason: "Invalid incoming User object"))
                                         })
                                     }
+                                    
+                                    
                                 } catch let error as NSError {
                                     // handle error
                                     DispatchQueue.main.async(execute: {
                                         completion(BackendError.realm(error: error))
                                     })
                                 }
-                            }
+                           // }
                         
                     }
                     

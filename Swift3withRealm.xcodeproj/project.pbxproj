@@ -21,7 +21,7 @@
 		FD1AD5151DAE3ED80015523F /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1AD5141DAE3ED80015523F /* APIRouter.swift */; };
 		FD1AD5171DAE3EDC0015523F /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1AD5161DAE3EDC0015523F /* NetworkManager.swift */; };
 		FD1AD51A1DAE3EF10015523F /* ListTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1AD5191DAE3EF10015523F /* ListTransform.swift */; };
-		FD1AD51F1DAE3F1E0015523F /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD1AD51E1DAE3F1E0015523F /* Cards.swift */; };
+		FD45888C1DAFB43200515BCB /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD45888B1DAFB43200515BCB /* Info.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,7 +68,7 @@
 		FD1AD5141DAE3ED80015523F /* APIRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		FD1AD5161DAE3EDC0015523F /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		FD1AD5191DAE3EF10015523F /* ListTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTransform.swift; sourceTree = "<group>"; };
-		FD1AD51E1DAE3F1E0015523F /* Cards.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		FD45888B1DAFB43200515BCB /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +186,7 @@
 		FD1AD51B1DAE3EF90015523F /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				FD1AD51E1DAE3F1E0015523F /* Cards.swift */,
+				FD45888B1DAFB43200515BCB /* Info.swift */,
 			);
 			name = Realm;
 			sourceTree = "<group>";
@@ -488,7 +488,7 @@
 				FD1AD51A1DAE3EF10015523F /* ListTransform.swift in Sources */,
 				FD1AD4E61DAE3C640015523F /* ViewController.swift in Sources */,
 				FD1AD5151DAE3ED80015523F /* APIRouter.swift in Sources */,
-				FD1AD51F1DAE3F1E0015523F /* Cards.swift in Sources */,
+				FD45888C1DAFB43200515BCB /* Info.swift in Sources */,
 				FD1AD5171DAE3EDC0015523F /* NetworkManager.swift in Sources */,
 				FD1AD4E41DAE3C630015523F /* AppDelegate.swift in Sources */,
 				FD1AD5131DAE3ECD0015523F /* Session.swift in Sources */,

@@ -58,7 +58,7 @@
                   moduleName = "ObjectMapper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vijayalakshmipulivarthi/Desktop/Swift3withRealm/Pods/ObjectMapper/ObjectMapper/Core/Mapper.swift"
-                  timestampString = "498051568.878337"
+                  timestampString = "498059053.323513"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -73,7 +73,7 @@
                   moduleName = "ObjectMapper"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/vijayalakshmipulivarthi/Desktop/Swift3withRealm/Pods/ObjectMapper/ObjectMapper/Core/Mapper.swift"
-                  timestampString = "498051568.880861"
+                  timestampString = "498059053.32599"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -138,45 +138,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NetworkManager.swift"
-            timestampString = "498051176.631955"
+            timestampString = "498058520.748171"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "156"
             endingLineNumber = "156"
             landmarkName = "retrieveCards(completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Swift3withRealm.NetworkManager.(retrieveCards (completion : (Swift.Optional&lt;Swift3withRealm.BackendError&gt;) -&gt; ()) -&gt; ()).(closure #2)"
-                  moduleName = "Swift3withRealm"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vijayalakshmipulivarthi/Desktop/Swift3withRealm/NetworkManager.swift"
-                  timestampString = "498051568.896319"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "156"
-                  endingLineNumber = "156"
-                  offsetFromSymbolStart = "1728">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Swift3withRealm.NetworkManager.(retrieveCards (completion : (Swift.Optional&lt;Swift3withRealm.BackendError&gt;) -&gt; ()) -&gt; ()).(closure #2).(closure #1)"
-                  moduleName = "Swift3withRealm"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/vijayalakshmipulivarthi/Desktop/Swift3withRealm/NetworkManager.swift"
-                  timestampString = "498051568.898578"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
-                  offsetFromSymbolStart = "31">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "NetworkManager.swift"
+            timestampString = "498058532.885284"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "validate(response:data:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

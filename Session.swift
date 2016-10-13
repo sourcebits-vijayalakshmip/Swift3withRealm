@@ -20,8 +20,9 @@ class Session {
     
     static let shared = Session()
     
-    var cards: Cards?
-    var cardsInfo: CardsInfo?
+    var faction: Faction?
+    var quality: Quality?
+
     
     fileprivate init() {
         
@@ -31,7 +32,7 @@ class Session {
             let realm = try Realm()
 
             let predicate = NSPredicate(format: "isMe = true")
-            cards = realm.objects(Cards.self).filter(predicate).first
+            faction = realm.objects(Faction.self).filter(predicate).first
             
         } catch let error as NSError {
             // handle error
