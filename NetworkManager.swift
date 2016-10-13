@@ -98,10 +98,10 @@ extension NetworkManager {
             if let data = data {
                 
                 do {
-                    if  let responseDictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSONDictionary,
+                    if  var responseDictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? JSONDictionary,
                         let codeArray = responseDictionary["factions"] as? NSArray {
-                        debugPrint("Passresponse: \(codeArray)")
-                        if codeArray != [] {
+                        debugPrint("response: \(codeArray)")
+                        if codeArray != [ ] {
                             return .success
                         } else {
                             // Parse the application error code
@@ -109,7 +109,7 @@ extension NetworkManager {
                                 NSLocalizedDescriptionKey: NSLocalizedString("Failed", value: "", comment: ""),
                                 ] as [String : Any]
                             
-                            return .failure(BackendError.serverApplication(error: NSError(domain: APIErrorConstants.domain, code:(codeArray as? Int)!, userInfo: userInfo)))
+                            return .failure(BackendError.serverApplication(error: NSError(domain: APIErrorConstants.domain, code:0, userInfo: userInfo)))
                         }
                     } else {
                         return .failure(BackendError.objectSerialization(reason: "Unexpected response format"))
@@ -151,16 +151,21 @@ extension NetworkManager {
                     if let responseDict = response.result.value as? JSONDictionary,
                         let dataArray = responseDict["factions"] as? NSArray {
                         
-                            debugPrint("response: \(dataArray)")
+                            debugPrint("Array response: \(dataArray)")
                             
                             DispatchQueue(label: "realmBackground").async {
                                 
                                 do {
                                     let realm = try Realm()
                                     
-                                    if let card = Mapper<Cards>().mapArray(JSONArray: dataArray as! [[String : Any]]) {
+                                    if let card = Mapper<Cards>().mapArray(JSONArray: dataArray as! [[String : AnyObject]]) {
+                                        
+                                        debugPrint("card response: \(card)")
+
                                         //card.isMe = true
                                         
+                                        debugPrint("card response: \(dataArray)")
+
                                         // Import the object
                                         try realm.write {
                                             // update the unique object if it is already in the store

@@ -13,8 +13,6 @@ import RealmSwift
 
 struct CardsInfo {
     
-    var factionsCards: [String]
-
 }
 
 

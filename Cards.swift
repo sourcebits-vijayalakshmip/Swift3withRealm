@@ -11,24 +11,30 @@ import Foundation
 import RealmSwift
 import ObjectMapper
 
+
+
+
 class Cards: Object, Mappable {
     
     
-    dynamic var factionsArray : [String] = []
-    
-    
+     var card = List<Cards>()
+
     required convenience init?(map: Map) {
         self.init()
     }
     
     func mapping(map: Map) {
         
-        factionsArray <- map["factions"]
+       // var factionsArray = NSArray(obj)
+        card <- map["factions"]
     }
-
-// Specify properties to ignore (Realm won't persist these)
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+       // Specify properties to ignore (Realm won't persist these)
+    
+    //  override static func ignoredProperties() -> [String] {
+    //    return []
+    //  }
 }
+
+
+
