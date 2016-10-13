@@ -17,7 +17,7 @@ import ObjectMapper
 class Cards: Object, Mappable {
     
     
-     var card = List<Cards>()
+     var factionsArray = List<Cards>()
 
     required convenience init?(map: Map) {
         self.init()
@@ -26,7 +26,7 @@ class Cards: Object, Mappable {
     func mapping(map: Map) {
         
        // var factionsArray = NSArray(obj)
-        card <- map["factions"]
+        factionsArray <- map["factions"]
     }
     
        // Specify properties to ignore (Realm won't persist these)
